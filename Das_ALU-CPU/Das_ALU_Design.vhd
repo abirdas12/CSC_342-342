@@ -96,47 +96,45 @@ end process;
 Sign_Ext: Das_Sign_Ext port map (Das_16_Bit_IMM, Das_Extension);
 
 AddSub: Das_N_bit_Add_Sub port map (AddSub => Das_Add_Sub, x => Das_RS_Out, 
-												y => Das_RT_Out, Cout => Das_Cout, 
-												Overflow_Flag => Das_Overflow_Flag, 
-												Zero_Flag => Das_Zero_Flag, Negative_Flag => Das_Negative_Flag,
-												Sum => Das_RD_Second_2);
+																		y => Das_RT_Out, Cout => Das_Cout, 
+																		Overflow_Flag => Das_Overflow_Flag, 
+																		Zero_Flag => Das_Zero_Flag, Negative_Flag => Das_Negative_Flag,
+																		Sum => Das_RD_Second_2);
 
 												
 AddSub_2: Das_N_bit_Add_Sub port map (AddSub => Das_Add_Sub, x => Das_RS_Out, 
-												  y => Das_Extension, Cout => Das_Cout2, 
-												  Overflow_Flag => Das_Overflow_Flag2, 
-												  Zero_Flag => Das_Zero_Flag2, Negative_Flag => Das_Negative_Flag2,
-												  Sum => Das_RD_Second_4);
+												  						y => Das_Extension, Cout => Das_Cout2, 
+																			Overflow_Flag => Das_Overflow_Flag2, 
+												  						Zero_Flag => Das_Zero_Flag2, Negative_Flag => Das_Negative_Flag2,
+												  						Sum => Das_RD_Second_4);
 												
 Registers_In1: Das_N_bit_Register port map (Das_Clock => Das_Clk, Das_Wren => Das_wren, 
-														Das_Rden => Das_rden, Das_Chen => Das_chen,
-														Das_D => Das_RS, Das_Q => Das_RS_Out);
+																						Das_Rden => Das_rden, Das_Chen => Das_chen,
+																						Das_D => Das_RS, Das_Q => Das_RS_Out);
 														
 Register_Out1: Das_N_bit_Register port map (Das_Clock => Das_Clk, Das_Wren => Das_wren, 
-														Das_Rden => Das_rden, Das_Chen => Das_chen,
-														Das_D => Das_RD_Second_2, Das_Q => Das_AS_RD);
+																						Das_Rden => Das_rden, Das_Chen => Das_chen,
+																						Das_D => Das_RD_Second_2, Das_Q => Das_AS_RD);
 																				 
 Registers_In2: Das_N_bit_Register port map (Das_Clock => Das_Clk, Das_Wren => Das_wren, 
-														Das_Rden => Das_rden, Das_Chen => Das_chen,
-														Das_D => Das_RT, Das_Q => Das_RT_Out);
+																						Das_Rden => Das_rden, Das_Chen => Das_chen,
+																						Das_D => Das_RT, Das_Q => Das_RT_Out);
 														
 Register_3: Das_16_Bit_Register port map (Das_Clock => Das_Clk, Das_Wren => Das_wren, 
-														Das_Rden => Das_rden, Das_Chen => Das_chen,
-														Das_D => Das_16_Bit_IMM, Das_Q => Das_IMM_Out);
+																					Das_Rden => Das_rden, Das_Chen => Das_chen,
+																					Das_D => Das_16_Bit_IMM, Das_Q => Das_IMM_Out);
 														
 Register_Out3: Das_N_bit_Register port map (Das_Clock => Das_Clk, Das_Wren => Das_wren, 
-														Das_Rden => Das_rden, Das_Chen => Das_chen,
-														Das_D => Das_RD_Second_4, Das_Q => Das_AS_RD_16);
+																						Das_Rden => Das_rden, Das_Chen => Das_chen,
+																						Das_D => Das_RD_Second_4, Das_Q => Das_AS_RD_16);
 																				
 Logical_OP: Das_4_bit_OP_Code port map (Das_OP_Code => Das_OP_Code, Das_x => Das_RS_Out, Das_y => Das_RT_Out, 
-													 Das_shamt => Das_shamt, Das_extension => Das_Extension, 
-													 Das_Result => Das_RD_Second_3);
+													 							Das_shamt => Das_shamt, Das_extension => Das_Extension, 
+													 							Das_Result => Das_RD_Second_3);
 
 Register_Out2: Das_N_bit_Register port map (Das_Clock => Das_Clk, Das_Wren => Das_wren, 
-														Das_Rden => Das_rden, Das_Chen => Das_chen,
-														Das_D => Das_RD_Second_3, Das_Q => Das_RD);
-
-
+																						Das_Rden => Das_rden, Das_Chen => Das_chen,
+																						Das_D => Das_RD_Second_3, Das_Q => Das_RD);
 
 end arch;
  
