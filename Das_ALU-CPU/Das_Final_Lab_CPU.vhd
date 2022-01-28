@@ -88,8 +88,8 @@ BEGIN
 	
 	
 portMap_For_N_Bit_Registers: Das_N_BIT_Register port map (Das_Clock => Das_Register_Clock, Das_Wren => Das_wren, 
-																				 Das_Rden => Das_rden, Das_Chen => Das_chen,
-																				 Das_D => Das_d_signal, Das_Q => Das_q_signal);
+							  Das_Rden => Das_rden, Das_Chen => Das_chen,
+							  Das_D => Das_d_signal, Das_Q => Das_q_signal);
 	Das_OP_Code <= Das_q_signal(31 downto 28);
 	Das_wraddress <= Das_q_signal(25 downto 21);
 	Das_rdaddress_a <= Das_q_signal(20 downto 16); 
@@ -183,22 +183,15 @@ portMap_For_N_Bit_Registers: Das_N_BIT_Register port map (Das_Clock => Das_Regis
 
 
 portMap_for_ALU: Das_ALU_Design port map (Das_Clk =>  Das_Clock, 
-														Das_Wren => Das_Wren, Das_Chen => Das_Chen, Das_rden => Das_rden,
-														Das_OP_Code => Das_OP_Code,
-														Das_RS => Das_sub_wire0, Das_RT => Das_sub_wire1,
-														Das_shamt => Das_shamt,
-														Das_16_bit_IMM => Das_16_bit_IMM,
-														Das_RD => Das_RD,
-														Das_AS_RD => DAs_Result,
-														Das_AS_RD_16 => Das_AS_RD_16,
-														Das_Cout => Das_Cout, 
-														Das_Overflow_Flag => Das_Overflow_Flag, 
-														Das_Zero_Flag => Das_Zero_Flag, 
-														Das_Negative_Flag => Das_Negative_Flag,
-													   Das_Cout2 => Das_Cout2, 
-														Das_Overflow_Flag2 => Das_Overflow_Flag2, 
-														Das_Zero_Flag2 => Das_zero_Flag2, 
-														Das_Negative_Flag2 => Das_Negative_Flag2
-														);
+					  Das_Wren => Das_Wren, Das_Chen => Das_Chen, Das_rden => Das_rden,
+					  Das_OP_Code => Das_OP_Code, Das_RS => Das_sub_wire0, Das_RT => Das_sub_wire1,
+					  Das_shamt => Das_shamt, Das_16_bit_IMM => Das_16_bit_IMM, Das_RD => Das_RD,
+					  Das_AS_RD => DAs_Result, Das_AS_RD_16 => Das_AS_RD_16, Das_Cout => Das_Cout, 
+					  Das_Overflow_Flag => Das_Overflow_Flag, Das_Zero_Flag => Das_Zero_Flag, 
+					  Das_Negative_Flag => Das_Negative_Flag, Das_Cout2 => Das_Cout2, 
+					  Das_Overflow_Flag2 => Das_Overflow_Flag2, Das_Zero_Flag2 => Das_zero_Flag2,  
+					  Das_Negative_Flag2 => Das_Negative_Flag2
+					  );
+														
 
 END SYN;
